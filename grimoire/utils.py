@@ -38,6 +38,7 @@ from grimoire.ocean.git import GitOcean
 from grimoire.ocean.mbox import MBoxOcean
 from grimoire.ocean.stackexchange import StackExchangeOcean
 from grimoire.ocean.jira import JiraOcean
+from grimoire.ocean.discourse import DiscourseOcean
 
 # Connectors for EnrichOcean
 from grimoire.elk.bugzilla import BugzillaEnrich
@@ -47,7 +48,7 @@ from grimoire.elk.git import GitEnrich
 from grimoire.elk.mbox import MBoxEnrich
 from grimoire.elk.stackexchange import StackExchangeEnrich
 from grimoire.elk.jira import JiraEnrich
-
+from grimoire.elk.discourse import DiscourseEnrich
 
 # Connectors for Perceval
 from perceval.backends.bugzilla import Bugzilla, BugzillaCommand
@@ -57,6 +58,7 @@ from perceval.backends.git import Git, GitCommand
 from perceval.backends.mbox import MBox, MBoxCommand
 from perceval.backends.stackexchange import StackExchange, StackExchangeCommand
 from perceval.backends.jira import Jira, JiraCommand
+from perceval.backends.discourse import Discourse, DiscourseCommand
 
 from grimoire.elk.elastic import ElasticSearch
 from grimoire.elk.elastic import ElasticConnectException
@@ -90,7 +92,8 @@ def get_connectors():
             "mbox":[Git, MBoxOcean, MBoxEnrich, MBoxCommand],
             "stackexchange":[StackExchange, StackExchangeOcean,
                              StackExchangeEnrich, StackExchangeCommand],
-            "jira":[Jira, JiraOcean, JiraEnrich, JiraCommand]
+            "jira":[Jira, JiraOcean, JiraEnrich, JiraCommand],
+            "discourse":[Discourse, DiscourseOcean, DiscourseEnrich, DiscourseCommand],
             }  # Will come from Registry
 
 def get_elastic(url, es_index, clean = None, ocean_backend = None):
